@@ -1,0 +1,5 @@
+<%= form_for(:post, :html => { :id => "form-tweet" }, remote: true) do |f| %>
+   <%= f.text_area :content, id: "tweet-text", class: "tweet_text", :placeholder => "140 characters or less..." %>
+   <%= f.hidden_field :user_id, id: "user-id", :value => current_user.id %>
+   <%= f.submit "Send Tweet", id: "tweet-button", class: "tweet_btn" %>
+ <% end %>

@@ -1,0 +1,2 @@
+$(".media").prepend('<%= escape_javascript(render 'post', post: @post) %>').fadeIn(3000);
+$('#form-tweet').replaceWith('<%= escape_javascript(render 'form', post: @post) %>');

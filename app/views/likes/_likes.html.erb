@@ -1,0 +1,23 @@
+<div id="likes" data-like='<%= post.id %>'>
+  <!-- check if `current_user` exists -->
+   <% if current_user %>
+
+ <!-- check to see if user already has a like for given post -->
+     <% if @like = current_user.likes.find_by({ post_id: post.id }) %>
+
+      <%= form_for(:likes, :html => {:class => "like-form clearfix"}, url: "/likes/#{@like.id}", method: :delete) do |f| %>
+        <%= f.hidden_field :post_id, :value => post.id %>
+        <%= f.submit post.like_count, class: "like-btn" %>
+      <% end %>
+
+
+     <% else %>
+
+
+       <%= form_for(:likes, :html => {:class => "like-form clearfix"},url: {action: :create, controller: "likes"}, method: :post) do |f| %>
+        <%= f.hidden_field :post_id, :value => post.id %>
+        <%= f.submit post.like_count, class: "like-btn" %>
+      <% end %>
+    <% end %>
+   <% end %>
+</div>

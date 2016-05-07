@@ -1,0 +1,14 @@
+<a class="pull-left" href="#">
+    <div class="tweet-container">
+    <img id="tweet-avatar" class="media-object" src="<%= post.user.avatar %>" alt="">
+</a>
+<div class="media-body">
+    <h4 class="media-heading">@<%= post.user.username %>
+        <small>August 25, 2014 at 9:30 PM</small>
+    </h4>
+    <p class="tweet_content"><%= post.content %></p>
+</div>
+<hr>
+<button data-post="<%= post.id %>" data-user='<%= current_user.id %>' class="like-btn"><i class="fa fa-star fa-lg"></i><div class="like-count" data-post="<%= post.id %>" ><%= post.like_count %></div></button>
+
+</div>
